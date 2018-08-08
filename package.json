@@ -1,0 +1,31 @@
+{
+  "name": "parcel-electron-css-bug",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "main:dev": "cross-env NODE_ENV=development electron main/dev",
+    "main:build": "parcel build main/index.ts --target node --out-dir build/main",
+    "renderer:dev": "parcel app/index.html --target electron --out-dir build/app --public-url .",
+    "renderer:build": "parcel build app/index.html --target elctron --out-dir build/app --public-url .",
+    "dev": "concurrently --kill-others \"npm run main:dev\" \"npm run renderer:dev\"",
+    "build": "rimraf build && npm run main:build && npm run renderer:build"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.8",
+    "@types/react-dom": "^16.0.7",
+    "concurrently": "^3.6.1",
+    "cross-env": "^5.2.0",
+    "electron": "^2.0.6",
+    "parcel-bundler": "^1.9.7",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.14.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
